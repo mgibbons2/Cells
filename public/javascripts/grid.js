@@ -60,13 +60,21 @@ var column = row.selectAll(".square")
        d.click ++;
        if ((d.click)%2 == 0 ) { 
            d3.select(this).style("fill","#37344A");
+           var x = d.x;
+           var y = d.y;
+           var myselection = d3.selectAll(".square").filter(function(d) { return d.x == 51 && d.y == 51});
+           myselection.style("fill", "#37344A"); 
          }
        if ((d.click)%2 == 1 ) { 
-           d3.select(this).style("fill","#5E4A9E");
+           //d3.select(this).style("fill","#5E4A9E");
            mycell = d3.select(this);
            console.log(d.x);
+           var x = d.x;
+           var y = d.y;
            console.log(d.y);
-           console.log(d3.selectAll("#cell").datum());
+           //console.log(d3.selectAll(".square").filter(function(d) {return d.x < 200}));
+           var myselection = d3.selectAll(".square").filter(function(d) { return d.x == 51 && d.y == 51});
+           myselection.style("fill", "blue"); 
            //d3.select(column).filter(function(d){ return d.x == this.x + 50}).style("fill", "#5E4A9E");
     }
     });
