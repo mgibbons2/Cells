@@ -52,7 +52,8 @@ var column = row.selectAll(".square")
 	.attr("id", "cell")
 	.attr("click", function(d) { return d.click})
 	.attr("x", function(d) { return d.x; })
-    .attr("y", function(d) { return d.y; })
+	.attr("y", function(d) { return d.y; })
+	.attr("color", "0")
 	.attr("width", function(d) { return d.width; })
 	.attr("height", function(d) { return d.height; })
     .style("stroke", "#FFFFFF")
@@ -63,26 +64,41 @@ var column = row.selectAll(".square")
 		var y = d.y;
 		console.log(d.click);
 
-		if ((d.click)%2 == 0 ) {
+		if ((d.click) == 0 ) {
 			d3.select(this).style("fill","#DFC2F2");
 			
-			d3.selectAll(".square").filter(function(d) { return ( d.x == x + 50 && d.y == y + 50 && d.click % 2 == 0) ||( d.x == x + 50 && d.y == y -50 && d.click % 2 == 0) ||( d.x == x + 50 && d.y == y && d.click % 2 == 0) ||( d.x == x - 50 && d.y == y + 50 && d.click % 2 == 0) ||( d.x == x - 50 && d.y == y - 50 && d.click % 2 == 0) ||( d.x == x - 50 && d.y == y && d.click % 2 == 0) ||( d.x == x && d.y == y +50 && d.click % 2 == 0) ||( d.x == x && d.y == y -50 && d.click % 2 == 0)}).style("fill", "#DFC2F2");
+			d3.selectAll(".square").filter(function(d) { return ( d.x == x + 50 && d.y == y + 50 && d.click == 0) ||( d.x == x + 50 && d.y == y -50 && d.click == 0) ||( d.x == x + 50 && d.y == y && d.click == 0) ||( d.x == x - 50 && d.y == y + 50 && d.click == 0) ||( d.x == x - 50 && d.y == y - 50 && d.click == 0) ||( d.x == x - 50 && d.y == y && d.click == 0) ||( d.x == x && d.y == y +50 && d.click == 0) ||( d.x == x && d.y == y -50 && d.click == 0)}).style("fill", "#DFC2F2");
 
-			d3.selectAll(".square").filter(function(d) { return( d.x == x + 50 && d.y == y + 50 && d.click % 2 == 1) ||( d.x == x + 50 && d.y == y -50 && d.click % 2 == 1) ||( d.x == x + 50 && d.y == y && d.click % 2 == 1) ||( d.x == x - 50 && d.y == y + 50 && d.click % 2 == 1) ||( d.x == x - 50 && d.y == y - 50 && d.click % 2 == 1) ||( d.x == x - 50 && d.y == y && d.click % 2 == 1) ||( d.x == x && d.y == y +50 && d.click % 2 == 1) ||( d.x == x && d.y == y -50 && d.click % 2 == 1)}).style("fill", "#37344A");
+			d3.selectAll(".square").filter(function(d) { return( d.x == x + 50 && d.y == y + 50 && d.click == 1) ||( d.x == x + 50 && d.y == y -50 && d.click == 1) ||( d.x == x + 50 && d.y == y && d.click == 1) ||( d.x == x - 50 && d.y == y + 50 && d.click == 1) ||( d.x == x - 50 && d.y == y - 50 && d.click == 1) ||( d.x == x - 50 && d.y == y && d.click == 1) ||( d.x == x && d.y == y +50 && d.click == 1) ||( d.x == x && d.y == y -50 && d.click == 1)}).style("fill", "#3C6E71");
+
+			d3.selectAll(".square").filter(function(d) { return( d.x == x + 50 && d.y == y + 50 && d.click == 2) ||( d.x == x + 50 && d.y == y -50 && d.click == 2) ||( d.x == x + 50 && d.y == y && d.click == 2) ||( d.x == x - 50 && d.y == y + 50 && d.click == 2) ||( d.x == x - 50 && d.y == y - 50 && d.click == 2) ||( d.x == x - 50 && d.y == y && d.click == 2) ||( d.x == x && d.y == y +50 && d.click == 2) ||( d.x == x && d.y == y -50 && d.click == 2)}).style("fill", "#37344A");
 
 			}
 
-		if ((d.click)%2 == 1) {
+		if ((d.click) == 1) {
+			d3.select(this).style("fill","#3C6E71");
+
+			d3.selectAll(".square").filter(function(d) { return ( d.x == x + 50 && d.y == y + 50 && d.click == 0) ||( d.x == x + 50 && d.y == y -50 && d.click == 0) ||( d.x == x + 50 && d.y == y && d.click == 0) ||( d.x == x - 50 && d.y == y + 50 && d.click == 0) ||( d.x == x - 50 && d.y == y - 50 && d.click == 0) ||( d.x == x - 50 && d.y == y && d.click == 0) ||( d.x == x && d.y == y +50 && d.click == 0) ||( d.x == x && d.y == y -50 && d.click == 0)}).style("fill", "#DFC2F2");
+			
+			d3.selectAll(".square").filter(function(d) { return( d.x == x + 50 && d.y == y + 50 && d.click == 1) ||( d.x == x + 50 && d.y == y -50 && d.click == 1) ||( d.x == x + 50 && d.y == y && d.click == 1) ||( d.x == x - 50 && d.y == y + 50 && d.click == 1) ||( d.x == x - 50 && d.y == y - 50 && d.click == 1) ||( d.x == x - 50 && d.y == y && d.click == 1) ||( d.x == x && d.y == y +50 && d.click == 1) ||( d.x == x && d.y == y -50 && d.click == 1)}).style("fill", "#3C6E71");
+			
+			d3.selectAll(".square").filter(function(d) { return( d.x == x + 50 && d.y == y + 50 && d.click == 2) ||( d.x == x + 50 && d.y == y -50 && d.click == 2) ||( d.x == x + 50 && d.y == y && d.click == 2) ||( d.x == x - 50 && d.y == y + 50 && d.click == 2) ||( d.x == x - 50 && d.y == y - 50 && d.click == 2) ||( d.x == x - 50 && d.y == y && d.click == 2) ||( d.x == x && d.y == y +50 && d.click == 2) ||( d.x == x && d.y == y -50 && d.click == 2)}).style("fill", "#37344A");
+
+			}
+		if ((d.click) == 2) {
 			d3.select(this).style("fill","#37344A");
 			
-			d3.selectAll(".square").filter(function(d) { return ( d.x == x + 50 && d.y == y + 50 && d.click % 2 == 1) ||( d.x == x + 50 && d.y == y -50 && d.click % 2 == 1) ||( d.x == x + 50 && d.y == y && d.click % 2 == 1) ||( d.x == x - 50 && d.y == y + 50 && d.click % 2 == 1) ||( d.x == x - 50 && d.y == y - 50 && d.click % 2 == 1) ||( d.x == x - 50 && d.y == y && d.click % 2 == 1) ||( d.x == x && d.y == y +50 && d.click % 2 == 1) ||( d.x == x && d.y == y -50 && d.click % 2 == 1)}).style("fill", "#37344A");
-
-			d3.selectAll(".square").filter(function(d) { return( d.x == x + 50 && d.y == y + 50 && d.click % 2 == 0) ||( d.x == x + 50 && d.y == y -50 && d.click % 2 == 0) ||( d.x == x + 50 && d.y == y && d.click % 2 == 0) ||( d.x == x - 50 && d.y == y + 50 && d.click % 2 == 0) ||( d.x == x - 50 && d.y == y - 50 && d.click % 2 == 0) ||( d.x == x - 50 && d.y == y && d.click % 2 == 0) ||( d.x == x && d.y == y +50 && d.click % 2 == 0) ||( d.x == x && d.y == y -50 && d.click % 2 == 0)}).style("fill", "#DFC2F2");
+			d3.selectAll(".square").filter(function(d) { return ( d.x == x + 50 && d.y == y + 50 && d.click == 0) ||( d.x == x + 50 && d.y == y -50 && d.click == 0) ||( d.x == x + 50 && d.y == y && d.click == 0) ||( d.x == x - 50 && d.y == y + 50 && d.click == 0) ||( d.x == x - 50 && d.y == y - 50 && d.click == 0) ||( d.x == x - 50 && d.y == y && d.click == 0) ||( d.x == x && d.y == y +50 && d.click == 0) ||( d.x == x && d.y == y -50 && d.click == 0)}).style("fill", "#DFC2F2");
+			
+			d3.selectAll(".square").filter(function(d) { return( d.x == x + 50 && d.y == y + 50 && d.click == 1) ||( d.x == x + 50 && d.y == y -50 && d.click == 1) ||( d.x == x + 50 && d.y == y && d.click == 1) ||( d.x == x - 50 && d.y == y + 50 && d.click == 1) ||( d.x == x - 50 && d.y == y - 50 && d.click == 1) ||( d.x == x - 50 && d.y == y && d.click == 1) ||( d.x == x && d.y == y +50 && d.click == 1) ||( d.x == x && d.y == y -50 && d.click == 1)}).style("fill", "#3C6E71");
+			
+			d3.selectAll(".square").filter(function(d) { return( d.x == x + 50 && d.y == y + 50 && d.click == 2) ||( d.x == x + 50 && d.y == y -50 && d.click == 2) ||( d.x == x + 50 && d.y == y && d.click == 2) ||( d.x == x - 50 && d.y == y + 50 && d.click == 2) ||( d.x == x - 50 && d.y == y - 50 && d.click == 2) ||( d.x == x - 50 && d.y == y && d.click == 2) ||( d.x == x && d.y == y +50 && d.click == 2) ||( d.x == x && d.y == y -50 && d.click == 2)}).style("fill", "#37344A");
 
 			}
 
-		d3.select(this).attr("click", function(d) { return d.click++});
-		d3.selectAll(".square").filter(function(d) { return(d.x == x + 50 && d.y == y + 50) ||( d.x == x + 50 && d.y == y -50) ||( d.x == x + 50 && d.y == y) ||( d.x == x - 50 && d.y == y + 50) ||( d.x == x - 50 && d.y == y - 50) ||( d.x == x - 50 && d.y == y) ||( d.x == x && d.y == y +50) ||( d.x == x && d.y == y -50)}).attr("click", function(d) { return d.click++});
+		d3.select(this).attr("click", function(d) { if(d.click == 0){return d.click++;}if(d.click == 1){return d.click++;}if(d.click == 2){return d.click = d.click - 2;}});
+		
+		d3.selectAll(".square").filter(function(d) { return(d.x == x + 50 && d.y == y + 50) ||( d.x == x + 50 && d.y == y -50) ||( d.x == x + 50 && d.y == y) ||( d.x == x - 50 && d.y == y + 50) ||( d.x == x - 50 && d.y == y - 50) ||( d.x == x - 50 && d.y == y) ||( d.x == x && d.y == y +50) ||( d.x == x && d.y == y -50)}).attr("click", function(d) { if(d.click == 0){return d.click++;}if(d.click == 1){return d.click++;}if(d.click == 2){return d.click = d.click -2;}});
 
 		//functionality good! just need more cases!
 
