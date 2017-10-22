@@ -86,4 +86,10 @@ var column = row.selectAll(".square")
 
 		//functionality good! just need more cases!
 
+	})
+	.on('mouseover', function(d) {
+		d3.select(this).style("opacity", "0.0");
+	})
+	.on('mouseout', function(d) {
+		d3.select(this).style("opacity", "1.0");
 	});
