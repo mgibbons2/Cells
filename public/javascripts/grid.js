@@ -1,7 +1,24 @@
-function updateCount(z){
+function updateCount(z) {
+	if(z >= "7"){
+		d3.select(".removeabletotalclicks").remove();
+		timer(5);
+		d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Too Many Moves");
+		return;
+	}
 
-	d3.select(".removabletotalclicks").remove();
-	d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Move:  " + z);
+	if(z <= 6){
+		var maxtouch = d3.selectAll(".square").filter(function(d) {return (d.click == 1 && d.click == 2)});
+		if(maxtouch.size() == 0 && z != 0 && z != 1 && z != 2 && z != 3 && z != 4 && z != 5){
+			d3.select(".removabletotalclicks").remove();
+			d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Success!");
+		}
+		else{
+		d3.select(".removabletotalclicks").remove();
+		d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Move:  " + z + "/6");
+		}
+	}
+	d3.select(".removeabletotalclicks").remove();
+
 }
 function gridData() {
 	var data = new Array();
@@ -67,6 +84,7 @@ var column = row.selectAll(".square")
     .style("stroke", "#FFFFFF")
     .style("fill", "#37344A")
 	.on('click', function(d) {
+		console.log(d3.selectAll(".square").filter(function(d) {return d.click == 1 || d.click == 2 }).size());
 		var total = d3.selectAll(".square").attr("color", function(d) {return d.color++});
 		var z = d.color;
 		console.log(z);
