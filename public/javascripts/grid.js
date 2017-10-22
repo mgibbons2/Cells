@@ -101,11 +101,4 @@ var column = row.selectAll(".square")
 		d3.selectAll(".square").filter(function(d) { return(d.x == x + 50 && d.y == y + 50) ||( d.x == x + 50 && d.y == y -50) ||( d.x == x + 50 && d.y == y) ||( d.x == x - 50 && d.y == y + 50) ||( d.x == x - 50 && d.y == y - 50) ||( d.x == x - 50 && d.y == y) ||( d.x == x && d.y == y +50) ||( d.x == x && d.y == y -50)}).attr("click", function(d) { if(d.click == 0){return d.click++;}if(d.click == 1){return d.click++;}if(d.click == 2){return d.click = d.click -2;}});
 
 		//functionality good! just need more cases!
-
-	})
-	.on('mouseover', function(d) {
-		d3.select(this).style("opacity", "0.0");
-	})
-	.on('mouseout', function(d) {
-		d3.select(this).style("opacity", "1.0");
 	});
