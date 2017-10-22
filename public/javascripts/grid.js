@@ -1,5 +1,10 @@
+var m = 6;
 function updateCount(z) {
-	if(z == 6){
+	if(z == 0){
+		d3.select(".removabletotalclicks").remove();
+		d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Move: " + z + "/" + m);
+	}
+	if(z == m){
 		var maxtouch = d3.selectAll(".square").filter(function(d) {return d.click == 1 || d.click == 2});
 		var t = maxtouch.size();
 		console.log(t);
@@ -10,12 +15,12 @@ function updateCount(z) {
 		}
 		else{
 		d3.select(".removabletotalclicks").remove();
-		d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Move:  " + z + "/6");
+		d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Move:  " + z + "/" + m);
 		}
 	}
-	if(z <= 5){
+	if(z <= m-1){
 		d3.select(".removabletotalclicks").remove();
-		d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Move:  " + z + "/6");
+		d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Move:  " + z + "/" + m);
 		}
 	d3.select(".removeabletotalclicks").remove();
 
