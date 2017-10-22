@@ -58,16 +58,32 @@ var column = row.selectAll(".square")
     .style("stroke", "#CAC4CE")
     .style("fill", "#37344A")
 	.on('click', function(d) {
-	   d.click ++;
-	   var x = d.x;
-	   var y = d.y;
 
-       if ((d.click)%2 == 0 ) {
-		   d3.select(this).style("fill","#37344A");
-		   d3.selectAll(".square").filter(function(d) { return ( d.x == x + 50 && d.y == y + 50)}).style("fill", "#37344A").attr("click", function(d) { return d.click++});
-         }
-       if ((d.click)%2 == 1 ) { 
-		   d3.select(this).style("fill", "#DFC2F2");
-		   d3.selectAll(".square").filter(function(d) { return ( d.x == x + 50 && d.y == y + 50)}).style("fill", "#DFC2F2").attr("click", function(d) { return d.click++});
-    }
-    });
+		var x = d.x;
+		var y = d.y;
+		console.log(d.click);
+
+		if ((d.click)%2 == 0 ) {
+			d3.select(this).style("fill","#DFC2F2");
+			
+			d3.selectAll(".square").filter(function(d) { return ( d.x == x + 50 && d.y == y + 50 && d.click % 2 == 0) ||( d.x == x + 50 && d.y == y -50 && d.click % 2 == 0) ||( d.x == x + 50 && d.y == y && d.click % 2 == 0) ||( d.x == x - 50 && d.y == y + 50 && d.click % 2 == 0) ||( d.x == x - 50 && d.y == y - 50 && d.click % 2 == 0) ||( d.x == x - 50 && d.y == y && d.click % 2 == 0) ||( d.x == x && d.y == y +50 && d.click % 2 == 0) ||( d.x == x && d.y == y -50 && d.click % 2 == 0)}).style("fill", "#DFC2F2");
+
+			d3.selectAll(".square").filter(function(d) { return( d.x == x + 50 && d.y == y + 50 && d.click % 2 == 1) ||( d.x == x + 50 && d.y == y -50 && d.click % 2 == 1) ||( d.x == x + 50 && d.y == y && d.click % 2 == 1) ||( d.x == x - 50 && d.y == y + 50 && d.click % 2 == 1) ||( d.x == x - 50 && d.y == y - 50 && d.click % 2 == 1) ||( d.x == x - 50 && d.y == y && d.click % 2 == 1) ||( d.x == x && d.y == y +50 && d.click % 2 == 1) ||( d.x == x && d.y == y -50 && d.click % 2 == 1)}).style("fill", "#37344A");
+
+			}
+
+		if ((d.click)%2 == 1) {
+			d3.select(this).style("fill","#37344A");
+			
+			d3.selectAll(".square").filter(function(d) { return ( d.x == x + 50 && d.y == y + 50 && d.click % 2 == 1) ||( d.x == x + 50 && d.y == y -50 && d.click % 2 == 1) ||( d.x == x + 50 && d.y == y && d.click % 2 == 1) ||( d.x == x - 50 && d.y == y + 50 && d.click % 2 == 1) ||( d.x == x - 50 && d.y == y - 50 && d.click % 2 == 1) ||( d.x == x - 50 && d.y == y && d.click % 2 == 1) ||( d.x == x && d.y == y +50 && d.click % 2 == 1) ||( d.x == x && d.y == y -50 && d.click % 2 == 1)}).style("fill", "#37344A");
+
+			d3.selectAll(".square").filter(function(d) { return( d.x == x + 50 && d.y == y + 50 && d.click % 2 == 0) ||( d.x == x + 50 && d.y == y -50 && d.click % 2 == 0) ||( d.x == x + 50 && d.y == y && d.click % 2 == 0) ||( d.x == x - 50 && d.y == y + 50 && d.click % 2 == 0) ||( d.x == x - 50 && d.y == y - 50 && d.click % 2 == 0) ||( d.x == x - 50 && d.y == y && d.click % 2 == 0) ||( d.x == x && d.y == y +50 && d.click % 2 == 0) ||( d.x == x && d.y == y -50 && d.click % 2 == 0)}).style("fill", "#DFC2F2");
+
+			}
+
+		d3.select(this).attr("click", function(d) { return d.click++});
+		d3.selectAll(".square").filter(function(d) { return(d.x == x + 50 && d.y == y + 50) ||( d.x == x + 50 && d.y == y -50) ||( d.x == x + 50 && d.y == y) ||( d.x == x - 50 && d.y == y + 50) ||( d.x == x - 50 && d.y == y - 50) ||( d.x == x - 50 && d.y == y) ||( d.x == x && d.y == y +50) ||( d.x == x && d.y == y -50)}).attr("click", function(d) { return d.click++});
+
+		//functionality good! just need more cases!
+
+	});
