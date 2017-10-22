@@ -49,7 +49,8 @@ var column = row.selectAll(".square")
 	.data(function(d) { return d; })
 	.enter().append("rect")
     .attr("class","square")
-    .attr("id", "cell")
+	.attr("id", "cell")
+	.attr("click", function(d) { return d.click})
 	.attr("x", function(d) { return d.x; })
     .attr("y", function(d) { return d.y; })
 	.attr("width", function(d) { return d.width; })
@@ -57,24 +58,16 @@ var column = row.selectAll(".square")
     .style("stroke", "#CAC4CE")
     .style("fill", "#37344A")
 	.on('click', function(d) {
-       d.click ++;
-       if ((d.click)%2 == 0 ) { 
-           d3.select(this).style("fill","#37344A");
-           var x = d.x;
-           var y = d.y;
-           var myselection = d3.selectAll(".square").filter(function(d) { return d.x == 51 && d.y == 51});
-           myselection.style("fill", "#37344A"); 
+	   d.click ++;
+	   var x = d.x;
+	   var y = d.y;
+
+       if ((d.click)%2 == 0 ) {
+		   d3.select(this).style("fill","#37344A");
+		   d3.selectAll(".square").filter(function(d) { return ( d.x == x + 50 && d.y == y + 50)}).style("fill", "#37344A").attr("click", function(d) { return d.click++});
          }
        if ((d.click)%2 == 1 ) { 
-           //d3.select(this).style("fill","#5E4A9E");
-           mycell = d3.select(this);
-           console.log(d.x);
-           var x = d.x;
-           var y = d.y;
-           console.log(d.y);
-           //console.log(d3.selectAll(".square").filter(function(d) {return d.x < 200}));
-           var myselection = d3.selectAll(".square").filter(function(d) { return d.x == 51 && d.y == 51});
-           myselection.style("fill", "blue"); 
-           //d3.select(column).filter(function(d){ return d.x == this.x + 50}).style("fill", "#5E4A9E");
+		   d3.select(this).style("fill", "#DFC2F2");
+		   d3.selectAll(".square").filter(function(d) { return ( d.x == x + 50 && d.y == y + 50)}).style("fill", "#DFC2F2").attr("click", function(d) { return d.click++});
     }
     });
