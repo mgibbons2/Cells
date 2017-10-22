@@ -55,7 +55,7 @@ var column = row.selectAll(".square")
     .attr("y", function(d) { return d.y; })
 	.attr("width", function(d) { return d.width; })
 	.attr("height", function(d) { return d.height; })
-    .style("stroke", "#CAC4CE")
+    .style("stroke", "#FFFFFF")
     .style("fill", "#37344A")
 	.on('click', function(d) {
 

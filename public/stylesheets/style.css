@@ -16,7 +16,8 @@ body{
     grid-template-columns: .50fr 700px 1fr;
     grid-template-rows: 100vh;
     margin: 0;
-    background-color: #CAC4CE;
+    /*background-color: #CAC4CE;*/
+    background-color: #37344A;
 }
 .sidebar{
     display: grid;
