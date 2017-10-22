@@ -46,7 +46,7 @@ p{
         grid-column: 1;
         grid-row: 1;
         grid-template-rows: 1fr 1fr 1fr;
-        font-size: 6vw;
+        font-size: 20vw;
     }
     body{
         grid-template-columns: 1fr;
