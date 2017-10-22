@@ -102,3 +102,13 @@ var column = row.selectAll(".square")
 
 		//functionality good! just need more cases!
 	});
+/*var column_selected = d3.select(column).filter(function(d) { return })
+var fakeClick = function(target) {
+	var event = document.createEvent('MouseEvents');
+	event.initMouseEvent('click');
+	target.dispatchEvent(event);
+};
+fakeClick(column);*/
+console.log(d3.selectAll(".square").filter(function(d) { return (d.x >= 251 && d.x <= 351 && d.y > 51 && d.y < 251 )}).style("fill", function(d) {if(d.click == 0){return"#DFC2F2"}if(d.click == 1){return "#CDFFF9"}if(d.click ==2){return "#37344A"}}).attr("click", function(d) { return d.click++}));
+console.log(d3.selectAll(".square").filter(function(d) { return (d.x >= 251 && d.x <= 351 && d.y > 201 && d.y < 401 )}).style("fill", function(d) {if(d.click == 0){return"#DFC2F2"}if(d.click == 1){return "#CDFFF9"}if(d.click ==2){return "#37344A"}}).attr("click", function(d) { return d.click++}));
+console.log(d3.selectAll(".square").filter(function(d) { return (d.x >= 151 && d.x <= 251 && d.y > 51 && d.y < 251 )}).style("fill", function(d) {if(d.click == 0){return"#DFC2F2"}if(d.click == 1){return "#CDFFF9"}if(d.click ==2){return "#37344A"}}).attr("click", function(d) { return d.click++}));
