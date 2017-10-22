@@ -1,10 +1,16 @@
+function updateCount(z){
+
+	d3.select(".removabletotalclicks").remove();
+	d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Move:  " + z);
+}
 function gridData() {
 	var data = new Array();
 	var xpos = 1; //starting xpos and ypos at 1 so the stroke will show when we make the grid below
 	var ypos = 1;
 	var width = 50;
 	var height = 50;
-    var click = 0;
+	var click = 0;
+	var color = "0";
 
 	
 	// iterate for rows	
@@ -18,7 +24,8 @@ function gridData() {
 				y: ypos,
 				width: width,
 				height: height,
-				click: click
+				click: click,
+				color: color
 			})
 			// increment the x position. I.e. move it over by 50 (width variable)
 			xpos += width;
@@ -34,6 +41,7 @@ function gridData() {
 var gridData = gridData();	
 // I like to log the data to the console for quick debugging
 console.log(gridData);
+updateCount("0");
 
 var grid = d3.select("#grid")
 	.append("svg")
@@ -44,7 +52,7 @@ var row = grid.selectAll(".row")
 	.data(gridData)
 	.enter().append("g")
 	.attr("class", "row");
-	
+
 var column = row.selectAll(".square")
 	.data(function(d) { return d; })
 	.enter().append("rect")
@@ -59,10 +67,12 @@ var column = row.selectAll(".square")
     .style("stroke", "#FFFFFF")
     .style("fill", "#37344A")
 	.on('click', function(d) {
-
+		var total = d3.selectAll(".square").attr("color", function(d) {return d.color++});
+		var z = d.color;
+		console.log(z);
+		updateCount(z);
 		var x = d.x;
 		var y = d.y;
-		console.log(d.click);
 
 		if ((d.click) == 0 ) {
 			d3.select(this).style("fill","#DFC2F2");

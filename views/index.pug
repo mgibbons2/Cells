@@ -2,8 +2,9 @@ extends layout
 
 block content 
     .sidebar Cells
-        p Click Cells To Change Color Of Surrounding Cells.
-        p Use The Least Amount Of Touches To Turn Board One Solid Color.  
+        p Click Cells To Change Color Of Surrounding Cells. Use The Least Amount Of Touches To Turn Board One Solid Color.
+        .totalclicks
+            .removeabletotalclicks
     .wrapper
         .grid(id="grid")
         script(src="/javascripts/grid.js" type="text/javascript")
