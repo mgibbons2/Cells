@@ -1,22 +1,22 @@
 function updateCount(z) {
-	if(z >= "7"){
-		d3.select(".removeabletotalclicks").remove();
-		timer(5);
-		d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Too Many Moves");
-		return;
-	}
-
-	if(z <= 6){
-		var maxtouch = d3.selectAll(".square").filter(function(d) {return (d.click == 1 && d.click == 2)});
-		if(maxtouch.size() == 0 && z != 0 && z != 1 && z != 2 && z != 3 && z != 4 && z != 5){
+	if(z == 6){
+		var maxtouch = d3.selectAll(".square").filter(function(d) {return d.click == 1 || d.click == 2});
+		var t = maxtouch.size();
+		console.log(t);
+		if(t == 0){
 			d3.select(".removabletotalclicks").remove();
 			d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Success!");
+			
 		}
 		else{
 		d3.select(".removabletotalclicks").remove();
 		d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Move:  " + z + "/6");
 		}
 	}
+	if(z <= 5){
+		d3.select(".removabletotalclicks").remove();
+		d3.select(".totalclicks").append("div").attr("class", "removabletotalclicks").append("text").text("Move:  " + z + "/6");
+		}
 	d3.select(".removeabletotalclicks").remove();
 
 }
@@ -84,11 +84,9 @@ var column = row.selectAll(".square")
     .style("stroke", "#FFFFFF")
     .style("fill", "#37344A")
 	.on('click', function(d) {
-		console.log(d3.selectAll(".square").filter(function(d) {return d.click == 1 || d.click == 2 }).size());
 		var total = d3.selectAll(".square").attr("color", function(d) {return d.color++});
 		var z = d.color;
 		console.log(z);
-		updateCount(z);
 		var x = d.x;
 		var y = d.y;
 
@@ -127,7 +125,7 @@ var column = row.selectAll(".square")
 		d3.select(this).attr("click", function(d) { if(d.click == 0){return d.click++;}if(d.click == 1){return d.click++;}if(d.click == 2){return d.click = d.click - 2;}});
 		
 		d3.selectAll(".square").filter(function(d) { return(d.x == x + 50 && d.y == y + 50) ||( d.x == x + 50 && d.y == y -50) ||( d.x == x + 50 && d.y == y) ||( d.x == x - 50 && d.y == y + 50) ||( d.x == x - 50 && d.y == y - 50) ||( d.x == x - 50 && d.y == y) ||( d.x == x && d.y == y +50) ||( d.x == x && d.y == y -50)}).attr("click", function(d) { if(d.click == 0){return d.click++;}if(d.click == 1){return d.click++;}if(d.click == 2){return d.click = d.click -2;}});
-
+		updateCount(z);
 		//functionality good! just need more cases!
 	});
 /*var column_selected = d3.select(column).filter(function(d) { return })
