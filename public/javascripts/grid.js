@@ -1,4 +1,4 @@
-var m = 6;
+var m;
 function updateCount(z) {
 	if(z == 0){
 		d3.select(".removabletotalclicks").remove();
@@ -142,20 +142,29 @@ var fakeClick = function(target) {
 fakeClick(column);*/
 function setupBoard() {
 	var numClicks = Math.floor(Math.random() * 9) + 2;//get a random number between 2 and 10;
+	m = numClicks * 3;
 	console.log("my random number is " + numClicks);
-	var myChosenXCells = chooseCells(numClicks);
+	myChosenXCells = chooseCells(numClicks);
 	console.log(myChosenXCells);
 	var myChosenYCells = chooseCells(numClicks);
 	console.log(myChosenYCells);
+	clickChosenCells(myChosenXCells, myChosenYCells, numClicks);
 }
 function chooseCells(x){
 	var xarray = new Array();
 	for(i = 0; i < x; i++){
-		xarray[i] = Math.floor(Math.random() * 11);
+		xarray[i] = Math.floor(Math.random() * 10);
 	}
 	return xarray;
 }
+function clickChosenCells(x, y, numClicks){
+	for (i = 0; i < numClicks; i++){
+		console.log(d3.selectAll(".square").filter(function(d) {return (d.x == x[i]*50 + 1 && d.y == y[i]*50 + 1)}).style("fill", "#DFC2F2"));
+		//console.log(d3.selectAll(".square").filter(function(d) { return (d.x == x[i]*50 + 1 && d.y == y[i]*50 + 1 && d.click == 0) || ( d.x == x[i]*50 + 50 && d.y == y[i]*50 -50 && d.click == 0) ||( d.x == x[i]*50 + 50 && d.y == y[i]*50 && d.click == 0) ||( d.x == x[i]*50 - 50 && d.y == y[i]*50 + 50 && d.click == 0) ||( d.x == x[i]*50 - 50 && d.y == y[i]*50 - 50 && d.click == 0) ||( d.x == x[i]*50 - 50 && d.y == y[i]*50 && d.click == 0) ||( d.x == x[i]*50 && d.y == y[i]*50 +50 && d.click == 0) ||( d.x == x[i]*50 && d.y == y[i]*50 -50 && d.click == 0)}).style("fill", "#DFC2F2"));
+	}
+}
 setupBoard();
-console.log(d3.selectAll(".square").filter(function(d) { return (d.x >= 251 && d.x <= 351 && d.y > 51 && d.y < 251 )}).style("fill", function(d) {if(d.click == 0){return"#DFC2F2"}if(d.click == 1){return "#CDFFF9"}if(d.click ==2){return "#37344A"}}).attr("click", function(d) { return d.click++}));
-console.log(d3.selectAll(".square").filter(function(d) { return (d.x >= 251 && d.x <= 351 && d.y > 201 && d.y < 401 )}).style("fill", function(d) {if(d.click == 0){return"#DFC2F2"}if(d.click == 1){return "#CDFFF9"}if(d.click ==2){return "#37344A"}}).attr("click", function(d) { return d.click++}));
-console.log(d3.selectAll(".square").filter(function(d) { return (d.x >= 151 && d.x <= 251 && d.y > 51 && d.y < 251 )}).style("fill", function(d) {if(d.click == 0){return"#DFC2F2"}if(d.click == 1){return "#CDFFF9"}if(d.click ==2){return "#37344A"}}).attr("click", function(d) { return d.click++}));
+updateCount("0");
+//console.log(d3.selectAll(".square").filter(function(d) { return (d.x >= 251 && d.x <= 351 && d.y > 51 && d.y < 251 )}).style("fill", function(d) {if(d.click == 0){return"#DFC2F2"}if(d.click == 1){return "#CDFFF9"}if(d.click ==2){return "#37344A"}}).attr("click", function(d) { return d.click++}));
+//console.log(d3.selectAll(".square").filter(function(d) { return (d.x >= 251 && d.x <= 351 && d.y > 201 && d.y < 401 )}).style("fill", function(d) {if(d.click == 0){return"#DFC2F2"}if(d.click == 1){return "#CDFFF9"}if(d.click ==2){return "#37344A"}}).attr("click", function(d) { return d.click++}));
+//console.log(d3.selectAll(".square").filter(function(d) { return (d.x >= 151 && d.x <= 251 && d.y > 51 && d.y < 251 )}).style("fill", function(d) {if(d.click == 0){return"#DFC2F2"}if(d.click == 1){return "#CDFFF9"}if(d.click ==2){return "#37344A"}}).attr("click", function(d) { return d.click++}));
