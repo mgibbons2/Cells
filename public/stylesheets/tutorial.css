@@ -1,0 +1,23 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 0;
+    line-height: 33vh;
+    background-color: #37344A;
+    font-family: 'Playfair Display';
+    font-size: 5vw;
+    text-align: center;
+}
+.title{
+    grid-column: 1;
+    grid-row: 1;
+    color: white;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: grey;
+}
