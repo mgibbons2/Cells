@@ -2,9 +2,44 @@ doctype html
 html
   head
     title="Cells: Inversion"
-    link(rel='stylesheet', href='/stylesheets/game.css')
+    link(rel='stylesheet', href='/stylesheets/tutorial.css')
     link(href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet")
     script(src="https://d3js.org/d3.v4.min.js")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-  body Hello Tutorial!
+  body
+    a(href="/").title Cells
+    .instructions
+        p Cells is a game about inverting colors. The goal of the game is to turn the board one solid color in the number of moves specified.
+    .instructions
+        p Every turn, you may click a cell. Doing so will change the colors of both the cell you clicked, and those cells surrounding it.
+    .instructions
+        p The color each cell will change is as follows:
+    .instructions
+        p Purple Cells
+    svg.svgs
+        rect(width="100%" height="100%" style="fill:#37344A;stroke-width:3;stroke:rgb(0,0,0)")
+    .instructions
+        p when clicked will change to:
+    .instructions
+        p Pink Cells
+    svg.svgs
+        rect(width="100%" height="100%" style="fill:#DFC2F2;stroke-width:3;stroke:rgb(0,0,0)")
+    .instructions
+        p when clicked will change to:
+    .instructions
+        p Green Cells
+    svg.svgs
+        rect(width="100%" height="100%" style="fill:#CDFFF9;stroke-width:3;stroke:rgb(0,0,0)")
+    .instructions
+        p when clicked will change back to:
+    .instructions
+        p Purple Cells
+    svg.svgs
+        rect(width="100%" height="100%" style="fill:#37344A;stroke-width:3;stroke:rgb(0,0,0)")
+    .instructions
+        p And then the whole cycle starts back over.
+    .instructions
+        p Thats it! Now try it out: 
+    .instructions
+        a(href="/game") Play Game

@@ -1,6 +1,6 @@
 
 .grid{
-    background-color: #FFFFFF;
+
     grid-row: 2;
     grid-column: 2;
 }
@@ -16,8 +16,8 @@ body{
     grid-template-columns: .50fr 700px 1fr;
     grid-template-rows: 100vh;
     margin: 0;
-    /*background-color: #CAC4CE;*/
-    background-color: #37344A;
+    /*background-color: #37344A;*/
+    background-image: url("../images/eight_horns.png");
 }
 .sidebar{
     display: grid;
@@ -25,16 +25,21 @@ body{
     grid-template-rows: 50vh 25vh 25;
     grid-column: 1;
     grid-row: 1/2;
-    background-color: #37344A;
+    /*background-color: #37344A;*/
     text-align: center;
     font-family: 'Playfair Display';
     line-height: 25vh;
     font-size: 3vw;
-    color: white;
+    color: #37344A;
 }
 p{
     font-size: 1vw;
     line-height: 2vw;
+}
+a{
+    text-decoration: none;
+    color: #37344A;
+    font-size: 5vw;
 }
 @media only screen and (max-width: 756px) {
     .wrapper{
@@ -57,5 +62,8 @@ p{
     p{
         font-size: 6vw;
         line-height: 6vw;
+    }
+    a{
+        font-size: 20vw;
     }
   }

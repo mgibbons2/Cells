@@ -21,3 +21,8 @@ a{
 a:hover{
     color: grey;
 }
+@media only screen and (max-width: 756px) {
+    body{
+        font-size: 10vw;
+    }
+  }
