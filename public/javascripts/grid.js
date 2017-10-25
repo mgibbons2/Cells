@@ -140,6 +140,22 @@ var fakeClick = function(target) {
 	target.dispatchEvent(event);
 };
 fakeClick(column);*/
+function setupBoard() {
+	var numClicks = Math.floor(Math.random() * 9) + 2;//get a random number between 2 and 10;
+	console.log("my random number is " + numClicks);
+	var myChosenXCells = chooseCells(numClicks);
+	console.log(myChosenXCells);
+	var myChosenYCells = chooseCells(numClicks);
+	console.log(myChosenYCells);
+}
+function chooseCells(x){
+	var xarray = new Array();
+	for(i = 0; i < x; i++){
+		xarray[i] = Math.floor(Math.random() * 11);
+	}
+	return xarray;
+}
+setupBoard();
 console.log(d3.selectAll(".square").filter(function(d) { return (d.x >= 251 && d.x <= 351 && d.y > 51 && d.y < 251 )}).style("fill", function(d) {if(d.click == 0){return"#DFC2F2"}if(d.click == 1){return "#CDFFF9"}if(d.click ==2){return "#37344A"}}).attr("click", function(d) { return d.click++}));
 console.log(d3.selectAll(".square").filter(function(d) { return (d.x >= 251 && d.x <= 351 && d.y > 201 && d.y < 401 )}).style("fill", function(d) {if(d.click == 0){return"#DFC2F2"}if(d.click == 1){return "#CDFFF9"}if(d.click ==2){return "#37344A"}}).attr("click", function(d) { return d.click++}));
 console.log(d3.selectAll(".square").filter(function(d) { return (d.x >= 151 && d.x <= 251 && d.y > 51 && d.y < 251 )}).style("fill", function(d) {if(d.click == 0){return"#DFC2F2"}if(d.click == 1){return "#CDFFF9"}if(d.click ==2){return "#37344A"}}).attr("click", function(d) { return d.click++}));
