@@ -8,6 +8,10 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var game = require('./routes/game');
 var tutorial = require('./routes/tutorial');
+var difficulty = require('./routes/difficulty');
+var easy = require('./routes/easy');
+var intermediate = require('./routes/intermediate');
+var hard = require('./routes/hard');
 var users = require('./routes/users');
 
 var app = express();
@@ -27,6 +31,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/', game);
 app.use('/', tutorial);
+app.use('/', difficulty);
+app.use('/', easy);
+app.use('/', intermediate);
+app.use('/', hard);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
